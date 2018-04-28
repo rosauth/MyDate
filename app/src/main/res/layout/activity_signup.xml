@@ -13,11 +13,14 @@
         android:paddingLeft="24dp"
         android:paddingRight="24dp">
 
-        <ImageView android:src="@drawable/logo"
+        <TextView
+            android:id="@+id/appName_textView"
             android:layout_width="wrap_content"
             android:layout_height="72dp"
-            android:layout_marginBottom="24dp"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/poppins"
+            android:text="@string/application_name"
+            android:textSize="40sp" />
 
         <!-- Name Label -->
         <android.support.design.widget.TextInputLayout
@@ -29,7 +32,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:hint="Name" />
+                android:hint="@string/name"
+                android:fontFamily="@font/poppins"/>
         </android.support.design.widget.TextInputLayout>
 
         <!-- Address Label -->
@@ -42,7 +46,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPostalAddress"
-                android:hint="Address" />
+                android:hint="@string/address"
+                android:fontFamily="@font/poppins"/>
         </android.support.design.widget.TextInputLayout>
 
 
@@ -57,7 +62,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:hint="Email" />
+                android:hint="@string/email"
+                android:fontFamily="@font/poppins"/>
         </android.support.design.widget.TextInputLayout>
 
 
@@ -71,7 +77,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:hint="Mobile Number" />
+                android:hint="@string/mobile_number"
+                android:fontFamily="@font/poppins"/>
         </android.support.design.widget.TextInputLayout>
 
         <!-- Password Label -->
@@ -84,7 +91,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="Password"/>
+                android:hint="@string/password"
+                android:fontFamily="@font/poppins"/>
         </android.support.design.widget.TextInputLayout>
 
         <!-- Password Re-enter Label -->
@@ -97,7 +105,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="Re-enter Password"/>
+                android:hint="@string/re_enter_password"
+                android:fontFamily="@font/poppins"/>
         </android.support.design.widget.TextInputLayout>
 
         <!-- Signup Button -->
@@ -108,15 +117,17 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
             android:padding="12dp"
-            android:text="Create Account"/>
+            android:text="@string/create_account"
+            android:fontFamily="@font/poppins"/>
 
         <TextView android:id="@+id/link_login"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            android:text="Already a member? Login"
+            android:text="@string/member_login"
+            android:fontFamily="@font/poppins"
             android:gravity="center"
-            android:textSize="16dip"/>
+            android:textSize="16dp"/>
 
     </LinearLayout>
 </ScrollView>
