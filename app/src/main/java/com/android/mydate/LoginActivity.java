@@ -104,7 +104,9 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onLoginSuccess() {
         _loginButton.setEnabled(true);
-        finish();
+        // Testing Chat Layout
+//        Intent logged_in = new Intent(LoginActivity.this, ChatActivity.class);
+//        startActivity(logged_in);
     }
 
     public void onLoginFailed() {
