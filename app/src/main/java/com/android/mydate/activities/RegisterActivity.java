@@ -1,5 +1,6 @@
 package com.android.mydate.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
+import android.widget.Toast;
 
 import com.android.mydate.R;
 
@@ -53,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
 
         initViews();
         initListeners();
@@ -146,8 +148,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             databaseHelper.addUser(user);
 
             // Snack Bar to show success message that record saved successfully
-            Snackbar.make(nestedScrollView, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();
             emptyInputEditText();
+            Intent loginIntent = new Intent(activity, LoginActivity.class);
+            startActivity(loginIntent);
+            Toast.makeText(getBaseContext(), "You are now registered", Toast.LENGTH_LONG).show();
 
 
         } else {

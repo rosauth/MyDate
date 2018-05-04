@@ -10,6 +10,8 @@ import android.support.v7.widget.Toolbar;
  */
 
 public class ChatActivity extends AppCompatActivity{
+    // TODO: Need logic for displaying chats from 2 side
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
