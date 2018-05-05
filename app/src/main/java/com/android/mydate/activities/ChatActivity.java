@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.format.DateUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -64,8 +65,11 @@ public class ChatActivity extends AppCompatActivity{
             }
 
             //TODO Edit to provide conversation between users
-//            TextView
-            return null;
+            TextView chat_content = (TextView) view.findViewById(R.id.chat_content);
+            chat_content.setText(DateUtils.getRelativeDateTimeString(ChatActivity.this,
+                    mChat.getDate().getTime(), DateUtils.SECOND_IN_MILLIS, DateUtils.DAY_IN_MILLIS, 0));
+
+            return view;
         }
     }
 }
