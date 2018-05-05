@@ -38,8 +38,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_email"
                 android:inputType="textEmailAddress"
-                android:textColorHint="@color/colorText"
-                android:textColor="@color/colorText"
+                android:textColorHint="@color/iron"
+                android:textColor="@color/white"
                 android:fontFamily="@font/poppins"
                 android:maxLines="1" />
             <requestFocus/>
@@ -58,8 +58,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_password"
                 android:inputType="textPassword"
-                android:textColorHint="@color/colorText"
-                android:textColor="@color/colorText"
+                android:textColorHint="@color/iron"
+                android:textColor="@color/white"
                 android:fontFamily="@font/poppins"
                 android:maxLines="1" />
         </android.support.design.widget.TextInputLayout>

@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_name"
-                android:inputType="textPersonName"
+                android:inputType="textPersonName|textCapSentences|textMultiLine"
                 android:fontFamily="@font/poppins"
                 android:maxLines="1" />
         </android.support.design.widget.TextInputLayout>
@@ -89,7 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Interest"
-                android:inputType="text"
+                android:inputType="text|textCapSentences|textMultiLine"
                 android:maxLines="1"
                 android:fontFamily="@font/poppins"/>
         </android.support.design.widget.TextInputLayout>
