@@ -9,6 +9,7 @@ public class User {
     private String sex;
     private int age;
     private String password;
+    private int total_poked;
 
     public int getId(){
         return id;
@@ -64,5 +65,13 @@ public class User {
 
     public void setPassword(String password){
         this.password = password;
+    }
+
+    public int getTotal_poked() {
+        return total_poked;
+    }
+
+    public void setTotal_poked(int total_poked) {
+        this.total_poked = total_poked;
     }
 }

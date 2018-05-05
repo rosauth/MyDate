@@ -24,12 +24,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_USER_AGE = "user_age";
     private static final String COLUMN_USER_EMAIL = "user_email";
     private static final String COLUMN_USER_PASSWORD = "user_password";
+    public static final String COLUMN_TOTAL_POKE = "poke_total";
 
     private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "(" +
-            COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_USER_NAME + " TEXT NOT NULL," +
-            COLUMN_USER_EMAIL + " TEXT NOT NULL," + COLUMN_USER_ADDRESS + " TEXT NOT NULL," +
-            COLUMN_USER_INTEREST + " TEXT NOT NULL," + COLUMN_USER_GENDER + " TEXT NOT NULL," +
-            COLUMN_USER_AGE + " INTEGER NOT NULL," + COLUMN_USER_PASSWORD + " TEXT NOT NULL)";
+            COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_USER_NAME + " TEXT NOT NULL, " +
+            COLUMN_USER_EMAIL + " TEXT NOT NULL, " + COLUMN_USER_ADDRESS + " TEXT NOT NULL, " +
+            COLUMN_USER_INTEREST + " TEXT NOT NULL, " + COLUMN_USER_GENDER + " TEXT NOT NULL, " +
+            COLUMN_USER_AGE + " INTEGER NOT NULL, " + COLUMN_USER_PASSWORD + " TEXT NOT NULL, " +
+            COLUMN_TOTAL_POKE + " INTEGER NOT NULL);";
 
     private String DROP_USER_TABLE = "DROP TABLE IF EXISTS " + TABLE_USER;
 
@@ -56,30 +58,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private String DROP_CHAT_TABLE = "DROP TABLE IF EXISTS " + TABLE_CHAT;
 
-    // Poke Table
-    private static final String TABLE_POKE = "pokes";
-    private static final String COLUMN_POKE_ID = "id_poke";
-    private static final String COLUMN_ID_POKER = "id_poker";
-    private static final String COLUMN_ID_POKED = "id_poked";
-    public static final String COLUMN_TOTAL_POKE = "poke_total";
-
-    private String CREATE_POKE_TABLE = "CREATE TABLE " +TABLE_POKE + " ( " +
-            COLUMN_POKE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT" +
-
-            // Foreign key
-            COLUMN_ID_POKER + " INTEGER NOT NULL, " +
-            " FOREIGN KEY (" + COLUMN_ID_POKER + ") REFERENCES " +
-            TABLE_USER  + " (" + COLUMN_USER_ID + ")" +
-
-            // Foreign key
-            COLUMN_ID_POKED + " INTEGER NOT NULL, " +
-            " FOREIGN KEY (" + COLUMN_ID_POKED + ") REFERENCES " +
-            TABLE_USER  + " (" + COLUMN_USER_ID + ")" +
-
-            COLUMN_TOTAL_POKE + " INTEGER NOT NULL);";
-
-    private String DROP_POKE_TABLE = "DROP TABLE IF EXISTS " + TABLE_POKE;
-
     public DatabaseHelper(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -88,14 +66,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db){
         db.execSQL(CREATE_USER_TABLE);
         db.execSQL(CREATE_TABLE_CHAT);
-        db.execSQL(CREATE_POKE_TABLE);
     }
 
     @Override
     public  void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
         db.execSQL(DROP_USER_TABLE);
         db.execSQL(DROP_CHAT_TABLE);
-        db.execSQL(DROP_POKE_TABLE);
         onCreate(db);
     }
 
