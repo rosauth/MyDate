@@ -16,14 +16,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // User Table
     public static final String TABLE_USER = "user";
-    private static final String COLUMN_USER_ID = "user_id";
+    public static final String COLUMN_USER_ID = "user_id";
     public static final String COLUMN_USER_NAME = "user_name";
-    private static final String COLUMN_USER_INTEREST = "user_interest";
+    public static final String COLUMN_USER_INTEREST = "user_interest";
     public static final String COLUMN_USER_GENDER = "user_gender";
     public static final String COLUMN_USER_ADDRESS = "user_address";
     public static final String COLUMN_USER_AGE = "user_age";
-    private static final String COLUMN_USER_EMAIL = "user_email";
-    private static final String COLUMN_USER_PASSWORD = "user_password";
+    public static final String COLUMN_USER_EMAIL = "user_email";
+    public static final String COLUMN_USER_PASSWORD = "user_password";
 
     private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "(" +
             COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_USER_NAME + " TEXT NOT NULL," +
