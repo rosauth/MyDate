@@ -1,8 +1,5 @@
 package com.android.mydate.model;
 
-/**
- * Created by delaroy on 3/27/17.
- */
 public class User {
 
     private int id;
