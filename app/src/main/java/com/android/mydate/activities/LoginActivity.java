@@ -11,7 +11,6 @@ import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 
-import com.android.mydate.ListView;
 import com.android.mydate.R;
 import com.android.mydate.helper.InputValidation;
 import com.android.mydate.sql.DatabaseHelper;
@@ -46,8 +45,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         initListeners();
         initObjects();
     }
-
-    private void initViews() {
+    private void initViews(){
         nestedScrollView = (NestedScrollView) findViewById(R.id.nestedScrollView);
 
         textInputLayoutEmail = (TextInputLayout) findViewById(R.id.textInputLayoutEmail);
@@ -61,19 +59,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         textViewLinkRegister = (AppCompatTextView) findViewById(R.id.textViewLinkRegister);
     }
 
-    private void initListeners() {
+    private void initListeners(){
         appCompatButtonLogin.setOnClickListener(this);
         textViewLinkRegister.setOnClickListener(this);
     }
 
-    private void initObjects() {
+    private void initObjects(){
         databaseHelper = new DatabaseHelper(activity);
         inputValidation = new InputValidation(activity);
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
+    public void onClick(View v){
+        switch (v.getId()){
             case R.id.appCompatButtonLogin:
                 verifyFromSQLite();
                 break;
@@ -83,6 +81,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
         }
     }
+
     private void verifyFromSQLite(){
         if (!inputValidation.isInputEditTextFilled(textInputEditTextEmail, textInputLayoutEmail, getString(R.string.error_message_email))) {
             return;
@@ -96,7 +95,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if (databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim()
                 , textInputEditTextPassword.getText().toString().trim())) {
-            Intent accountsIntent = new Intent(activity, ListView.class);
+            Intent accountsIntent = new Intent(activity, MyProfileActivity.class);
             accountsIntent.putExtra("EMAIL", textInputEditTextEmail.getText().toString().trim());
             emptyInputEditText();
             startActivity(accountsIntent);
@@ -104,7 +103,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Snackbar.make(nestedScrollView, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show();
         }
     }
-    private void emptyInputEditText () {
+
+    private void emptyInputEditText(){
         textInputEditTextEmail.setText(null);
         textInputEditTextPassword.setText(null);
     }
