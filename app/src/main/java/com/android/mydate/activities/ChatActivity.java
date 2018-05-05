@@ -55,14 +55,15 @@ public class ChatActivity extends AppCompatActivity{
 
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
-            Chat chat = getItem(i);
-            if (chat.isSent()){
+            Chat mChat = getItem(i);
+            if (mChat.isSent()){
                 view = getLayoutInflater().inflate(R.layout.chat_sent, null);
             }
             else {
                 view = getLayoutInflater().inflate(R.layout.chat_received, null);
             }
 
+            //TODO Edit to provide conversation between users
 //            TextView
             return null;
         }
