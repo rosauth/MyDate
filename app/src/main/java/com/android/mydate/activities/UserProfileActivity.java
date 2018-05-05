@@ -16,9 +16,7 @@ import android.view.MenuItem;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.android.mydate.ChatActivity;
 import com.android.mydate.R;
 
 public class UserProfileActivity extends AppCompatActivity{
@@ -34,7 +32,7 @@ public class UserProfileActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userprofile);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
 
 //        mUploadImage = (ImageView) findViewById(R.id.upload_image);
 
@@ -146,8 +144,10 @@ public class UserProfileActivity extends AppCompatActivity{
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_logout) {
+            Intent logout =  new Intent(UserProfileActivity.this, LoginActivity.class);
+            startActivity(logout);
+//            return true;
         }
 
         return super.onOptionsItemSelected(item);

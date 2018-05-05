@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
+import android.widget.Toast;
 
 import com.android.mydate.R;
 import com.android.mydate.helper.InputValidation;
@@ -100,12 +101,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             emptyInputEditText();
             startActivity(accountsIntent);
         } else {
-            Snackbar.make(nestedScrollView, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show();
+            //Snackbar.make(nestedScrollView, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), getString(R.string.error_valid_email_password), Toast.LENGTH_LONG).show();
         }
     }
 
     private void emptyInputEditText(){
         textInputEditTextEmail.setText(null);
         textInputEditTextPassword.setText(null);
+    }
+
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
     }
 }

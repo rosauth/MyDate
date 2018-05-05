@@ -1,6 +1,8 @@
 package com.android.mydate.activities;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,6 +16,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.mydate.R;
+import com.android.mydate.sql.DatabaseHelper;
+
+import java.util.ArrayList;
 
 /**
  * Created by rosa on 5/4/2018.
@@ -25,6 +30,8 @@ public class MyProfileActivity extends AppCompatActivity {
     FloatingActionButton fab, fab_chat, fab_poke;
     Animation FabOpen, FabClose, FabRClockwise, FabRanticlockwise;
     boolean isOpen = false;
+
+    private DatabaseHelper mHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +57,11 @@ public class MyProfileActivity extends AppCompatActivity {
 //              SelectImage();
                 Intent searchIntent = new Intent(MyProfileActivity.this, UserProfileActivity.class);
                 startActivity(searchIntent);
-                Toast.makeText(getBaseContext(), "Search Profile", Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), "Search Profile", Toast.LENGTH_SHORT).show();
             }
         });
+
+        mHelper = new DatabaseHelper(this);
     }
 
 //    private void SelectImage() {
@@ -98,6 +107,19 @@ public class MyProfileActivity extends AppCompatActivity {
 //        }
 //    }
 
+    private void updateUI(){
+        ArrayList<String> userProfile = new ArrayList<>();
+        SQLiteDatabase db = mHelper.getReadableDatabase();
+        Cursor cursor = db.query(DatabaseHelper.TABLE_USER,
+                new String[]{DatabaseHelper.COLUMN_USER_NAME, DatabaseHelper.COLUMN_USER_GENDER,
+                        DatabaseHelper.COLUMN_USER_AGE, DatabaseHelper.COLUMN_USER_ADDRESS,
+                        DatabaseHelper.COLUMN_TOTAL_POKE},
+                null,null,null,null, null);
+
+        while (cursor.moveToNext()){
+//            int
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -114,8 +136,10 @@ public class MyProfileActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_logout) {
+            Intent logout =  new Intent(MyProfileActivity.this, LoginActivity.class);
+            startActivity(logout);
+//            return true;
         }
 
         return super.onOptionsItemSelected(item);
