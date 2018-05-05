@@ -49,11 +49,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             // Foreign key
             COLUMN_ID_SENDER + " INTEGER NOT NULL, " + " FOREIGN KEY (" +
-            COLUMN_ID_SENDER + ") REFERENCES " + TABLE_USER + " (" + COLUMN_USER_ID + ")" +
+            COLUMN_ID_SENDER + ") REFERENCES " + TABLE_USER + " (" + COLUMN_USER_ID + ")," +
 
             // Foreign key
             COLUMN_ID_RECEIVER + " INTEGER NOT NULL, " + " FOREIGN KEY (" +
-            COLUMN_ID_RECEIVER + ") REFERENCES " + TABLE_USER  + " (" + COLUMN_USER_ID + ")" +
+            COLUMN_ID_RECEIVER + ") REFERENCES " + TABLE_USER  + " (" + COLUMN_USER_ID + ")," +
 
             COLUMN_CONTENT + " TEXT NOT NULL, " + COLUMN_CHAT_TIME + " TIME NOT NULL);";
 
