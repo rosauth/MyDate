@@ -20,7 +20,7 @@ public class UsersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_users);
 
         textViewName = (TextView) findViewById(R.id.text1);
-        String nameFromIntent = getIntent().getStringExtra("NAME");
+        String nameFromIntent = getIntent().getStringExtra("user_name");
         textViewName.setText("Welcome " + nameFromIntent);
     }
 }

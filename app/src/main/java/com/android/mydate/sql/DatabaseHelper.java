@@ -13,19 +13,19 @@ import com.android.mydate.model.User;
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 1;
 
-    private static final String DATABASE_NAME = "UserManager.db";
+    public static final String DATABASE_NAME = "UserManager.db";
 
-    private static final String TABLE_USER = "user";
+    public static final String TABLE_USER = "user";
 
-    private static final String COLUMN_USER_ID = "user_id";
-    private static final String COLUMN_USER_NAME = "user_name";
-    private static final String COLUMN_USER_INTEREST = "user_interest";
-    private static final String COLUMN_USER_SEX = "user_sex";
-    private static final String COLUMN_USER_AGE = "user_age";
-    private static final String COLUMN_USER_EMAIL = "user_email";
-    private static final String COLUMN_USER_PASSWORD = "user_password";
+    public static final String COLUMN_USER_ID = "user_id";
+    public static final String COLUMN_USER_NAME = "user_name";
+    public static final String COLUMN_USER_INTEREST = "user_interest";
+    public static final String COLUMN_USER_SEX = "user_sex";
+    public static final String COLUMN_USER_AGE = "user_age";
+    public static final String COLUMN_USER_EMAIL = "user_email";
+    public static final String COLUMN_USER_PASSWORD = "user_password";
 
     private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "("
             + COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_USER_NAME + " TEXT,"
