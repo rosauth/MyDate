@@ -1,4 +1,4 @@
-package com.android.mydate;
+package com.android.mydate.activities;
 
 import java.util.ArrayList;
 
@@ -12,6 +12,7 @@ import android.text.TextWatcher;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 
+import com.android.mydate.R;
 import com.android.mydate.sql.DatabaseHelper;
 
 public class ListView extends AppCompatActivity{

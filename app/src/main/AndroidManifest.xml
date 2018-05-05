@@ -16,20 +16,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.ChatActivity" android:theme="@style/AppTheme.Light"/>
+        <activity android:name=".activities.ChatActivity"/>
 
         <activity android:name=".activities.RegisterActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Dark"/>
 
-        <activity android:name=".activities.MyProfileActivity"
-            />
+        <activity android:name=".activities.MyProfileActivity" />
 
-        <activity android:name=".activities.UserProfileActivity"
-            />
+        <activity android:name=".activities.UserProfileActivity" />
 
         <activity android:name=".activities.UsersActivity"
             android:screenOrientation="portrait" />
+
+        <activity android:name=".activities.ListView"
+            android:theme="@style/AppTheme.Light"/>
     </application>
 
 </manifest>

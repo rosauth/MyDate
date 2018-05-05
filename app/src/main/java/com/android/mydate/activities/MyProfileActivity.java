@@ -55,7 +55,7 @@ public class MyProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 //              SelectImage();
-                Intent searchIntent = new Intent(MyProfileActivity.this, UserProfileActivity.class);
+                Intent searchIntent = new Intent(MyProfileActivity.this, ListView.class);
                 startActivity(searchIntent);
                 Toast.makeText(getBaseContext(), "Search Profile", Toast.LENGTH_SHORT).show();
             }
