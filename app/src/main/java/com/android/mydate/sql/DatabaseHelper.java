@@ -15,6 +15,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "UserManager.db";
 
     // User Table
+    //TODO save user photo in database
     public static final String TABLE_USER = "user";
     private static final String COLUMN_USER_ID = "user_id";
     public static final String COLUMN_USER_NAME = "user_name";

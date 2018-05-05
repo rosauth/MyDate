@@ -11,6 +11,8 @@ public class User {
     private String password;
     private int total_poked;
 
+    //TODO add photo for user model
+
     public int getId(){
         return id;
     }
