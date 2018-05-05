@@ -18,10 +18,6 @@ import com.android.mydate.helper.InputValidation;
 import com.android.mydate.model.User;
 import com.android.mydate.sql.DatabaseHelper;
 
-
-/**
- * Created by delaroy on 3/27/17.
- */
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     private final AppCompatActivity activity = RegisterActivity.this;
@@ -156,7 +152,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         } else {
             // Snack Bar to show error message that record already exists
-            Snackbar.make(nestedScrollView, getString(R.string.error_email_exists), Snackbar.LENGTH_LONG).show();
+            Snackbar.make(nestedScrollView, getString(R.string.error_email_exists), Snackbar.LENGTH_SHORT).show();
         }
 
 

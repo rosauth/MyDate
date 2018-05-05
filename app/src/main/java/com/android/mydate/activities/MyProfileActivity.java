@@ -107,19 +107,20 @@ public class MyProfileActivity extends AppCompatActivity {
 //        }
 //    }
 
-    private void updateUI(){
-        ArrayList<String> userProfile = new ArrayList<>();
-        SQLiteDatabase db = mHelper.getReadableDatabase();
-        Cursor cursor = db.query(DatabaseHelper.TABLE_USER,
-                new String[]{DatabaseHelper.COLUMN_USER_NAME, DatabaseHelper.COLUMN_USER_GENDER,
-                        DatabaseHelper.COLUMN_USER_AGE, DatabaseHelper.COLUMN_USER_ADDRESS,
-                        DatabaseHelper.COLUMN_TOTAL_POKE},
-                null,null,null,null, null);
-
-        while (cursor.moveToNext()){
-//            int
-        }
-    }
+//    private void updateUI(){
+//        ArrayList<String> userProfile = new ArrayList<>();
+//        SQLiteDatabase db = mHelper.getReadableDatabase();
+//        Cursor cursor = db.query(DatabaseHelper.TABLE_USER,
+//                new String[]{DatabaseHelper.COLUMN_USER_NAME, DatabaseHelper.COLUMN_USER_GENDER,
+//                        DatabaseHelper.COLUMN_USER_AGE, DatabaseHelper.COLUMN_USER_ADDRESS},
+//                null,null,null,null, null);
+//
+//        while (cursor.moveToNext()){
+//
+//        }
+//        cursor.close();
+//        db.close();
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -32,7 +32,7 @@ public class ListView extends AppCompatActivity{
 
         lv = (android.widget.ListView) findViewById(R.id.list_view);
         inputSearch = (EditText) findViewById(R.id.inputSearch);
-        updateUI();
+        //updateUI();
         filterData();
 
     }
@@ -57,32 +57,32 @@ public class ListView extends AppCompatActivity{
     }
 
 
-    @SuppressLint("ResourceType")
-    private void updateUI(){
-        ArrayList<String> taskList = new ArrayList<>();
-        SQLiteDatabase db = mHelper.getReadableDatabase();
-        Cursor cursor = db.query(DatabaseHelper.TABLE_USER, new String[] {DatabaseHelper.COLUMN_USER_ID,
-                DatabaseHelper.COLUMN_USER_NAME},null,null,null,null,null);
-        mAdapter = new ArrayAdapter<>(this, R.id.product_name, taskList);
-        while (cursor.moveToNext()){
-            int idx = cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_NAME);
-            taskList.add(cursor.getString(idx));
-        }
-        if (mAdapter == null){
-            mAdapter = new ArrayAdapter<>(this,
-                    R.layout.activity_main,
-                    R.id.list_view,
-                    taskList);
-            lv.setAdapter(mAdapter);
-        }
-        else {
-            mAdapter.clear();
-            mAdapter.addAll(taskList);
-            mAdapter.notifyDataSetChanged();
-        }
-
-        cursor.close();
-        db.close();
-    }
+//    @SuppressLint("ResourceType")
+//    private void updateUI(){
+//        ArrayList<String> taskList = new ArrayList<>();
+//        SQLiteDatabase db = mHelper.getReadableDatabase();
+//        Cursor cursor = db.query(DatabaseHelper.TABLE_USER, new String[] {DatabaseHelper.COLUMN_USER_ID,
+//                DatabaseHelper.COLUMN_USER_NAME},null,null,null,null,null);
+//        mAdapter = new ArrayAdapter<>(this, R.id.product_name, taskList);
+//        while (cursor.moveToNext()){
+//            int idx = cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_NAME);
+//            taskList.add(cursor.getString(idx));
+//        }
+//        if (mAdapter == null){
+//            mAdapter = new ArrayAdapter<>(this,
+//                    R.layout.activity_main,
+//                    R.id.list_view,
+//                    taskList);
+//            lv.setAdapter(mAdapter);
+//        }
+//        else {
+//            mAdapter.clear();
+//            mAdapter.addAll(taskList);
+//            mAdapter.notifyDataSetChanged();
+//        }
+//
+//        cursor.close();
+//        db.close();
+//    }
 
 }
