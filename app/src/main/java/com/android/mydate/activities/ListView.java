@@ -9,6 +9,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.SearchView;
 
 import com.android.mydate.R;
 import com.android.mydate.sql.DatabaseHelper;
@@ -20,7 +21,7 @@ public class ListView extends AppCompatActivity{
     public DatabaseHelper mHelper;
     private ArrayAdapter mAdapter;
     private android.widget.ListView lv;
-    EditText inputSearch;
+    SearchView inputSearch;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,31 +31,31 @@ public class ListView extends AppCompatActivity{
         mHelper = new DatabaseHelper(this);
 
         lv = (android.widget.ListView) findViewById(R.id.list_view);
-        inputSearch = (EditText) findViewById(R.id.inputSearch);
+        inputSearch = (SearchView) findViewById(R.id.inputSearch);
         updateUI();
-        filterData();
+//        filterData();
 //        getJSON();
 
     }
 
-    public void filterData(){
-        inputSearch.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
-                ListView.this.mAdapter.getFilter().filter(cs);
-            }
-
-            @Override
-            public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable arg0) {
-
-            }
-        });
-    }
+//    public void filterData(){
+//        inputSearch.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
+//                ListView.this.mAdapter.getFilter().filter(cs);
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable arg0) {
+//
+//            }
+//        });
+//    }
 
 //    private void getJSON() {
 //        @SuppressLint("StaticFieldLeak")
@@ -109,20 +110,19 @@ public class ListView extends AppCompatActivity{
 //    }
 
 
-    @SuppressLint("ResourceType")
     private void updateUI(){
         ArrayList<String> taskList = new ArrayList<>();
         SQLiteDatabase db = mHelper.getReadableDatabase();
         Cursor cursor = db.query(DatabaseHelper.TABLE_USER, new String[] {
                 DatabaseHelper.COLUMN_USER_NAME},null,null,null,null,null);
-        mAdapter = new ArrayAdapter<>(this, R.id.product_name, taskList);
+        mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, taskList);
         while (cursor.moveToNext()){
             int idx = cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_NAME);
             taskList.add(cursor.getString(idx));
         }
         if (mAdapter == null){
             mAdapter = new ArrayAdapter<>(this,
-                   android.R.layout.simple_list_item_1,
+                    android.R.layout.simple_list_item_1,
                     taskList);
             lv.setAdapter(mAdapter);
         }
