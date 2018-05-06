@@ -13,6 +13,8 @@ import android.view.MenuItem;
 import android.view.animation.Animation;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
@@ -33,7 +35,8 @@ public class MyProfileActivity extends AppCompatActivity {
     boolean isOpen = false;
 
     private DatabaseHelper mHelper;
-    private ArrayAdapter<String> mAdapter;
+    private ListAdapter mAdapter;
+    private ListView profile_list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,8 @@ public class MyProfileActivity extends AppCompatActivity {
         });
 
         mHelper = new DatabaseHelper(this);
+
+//        profile_list = findViewById(R.id.profile_list);
     }
 
 //    private void SelectImage() {
@@ -109,17 +114,21 @@ public class MyProfileActivity extends AppCompatActivity {
 //        }
 //    }
 
-    private void updateUI(){
-        ArrayList<String> list_profile = new ArrayList<>();
-        SQLiteDatabase db = mHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT user_name, user_gender, user_age, user_interest FROM user" +
-                "WHERE user_email LIKE ?", new String []{"%" + R.id.textInputEditTextEmail + "%"});
+//    private void updateUI(){
+//        ArrayList<String> list_profile = new ArrayList<>();
+//        SQLiteDatabase db = mHelper.getReadableDatabase();
+//        Cursor cursor = db.rawQuery("SELECT user_name, user_gender, user_age, user_interest FROM user" +
+//                "WHERE user_email LIKE ?", new String []{"%" + R.id.textInputEditTextEmail + "%"});
 //        mAdapter = new SimpleCursorAdapter(MyProfileActivity.this, R.layout.content_myprofile, cursor,
-//                new String[]{"user_name", "user_gender", "user_age", "user_interest"}, new int[]{R.id.})
-
-        cursor.close();
-        db.close();
-    }
+//                new String[]{"user_name", "user_gender", "user_age", "user_interest"},
+//                new int[]{R.id.tv_name, R.id.tv_gender, R.id.tv_age, R.id.tv_interest});
+//
+//        profile_list.setAdapter(mAdapter);
+//        profile_list.setTextFilterEnabled(true);
+//
+//        cursor.close();
+//        db.close();
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
