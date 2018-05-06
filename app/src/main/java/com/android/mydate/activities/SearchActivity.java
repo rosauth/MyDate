@@ -74,11 +74,12 @@ public class SearchActivity extends AppCompatActivity {
     private void updateUI() {
         ArrayList<String> taskList = new ArrayList<>();
         SQLiteDatabase db = mHelper.getReadableDatabase();
+        String  a = inputSearch.getText().toString();
 
         try {
             cursor = db.rawQuery("Select user_name, user_gender FROM user WHERE user_name LIKE ?",
-                    new String[]{"%" + inputSearch + "%"});
-            mAdapter = new SimpleCursorAdapter(SearchActivity.this, R.layout.activity_search, cursor,
+                    new String[]{"%" + a + "%"});
+            mAdapter = new SimpleCursorAdapter(SearchActivity.this, R.layout.activity_list_search, cursor,
                     new String[]{"user_name", "user_gender"}, new int[]{R.id.search_name, R.id.search_gender});
             lv.setAdapter(mAdapter);
             lv.setTextFilterEnabled(true);

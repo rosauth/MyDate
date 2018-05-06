@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/primary"
     android:fitsSystemWindows="true"
+    android:theme="@style/AppTheme.Dark"
     tools:context=".activities.LoginActivity">
 
     <android.support.v7.widget.LinearLayoutCompat

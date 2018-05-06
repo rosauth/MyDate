@@ -122,7 +122,7 @@ public class MyProfileActivity extends AppCompatActivity {
         }
 
         if ( mAdapter == null){
-            mAdapter = new ArrayAdapter<String>(this, R.layout.content_profile, R.id.tv_name,
+            mAdapter = new ArrayAdapter<String>(this, R.layout.content_myprofile, R.id.tv_name,
                     list_profile);
 
         }

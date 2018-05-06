@@ -37,6 +37,6 @@
         android:id="@+id/list_view"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/activity_listsearch"/>
+        tools:listitem="@layout/activity_list_search"/>
  
 </LinearLayout>
