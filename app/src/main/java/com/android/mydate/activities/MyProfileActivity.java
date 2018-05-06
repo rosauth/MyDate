@@ -5,13 +5,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.animation.Animation;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -32,6 +32,7 @@ public class MyProfileActivity extends AppCompatActivity {
     boolean isOpen = false;
 
     private DatabaseHelper mHelper;
+    private ArrayAdapter<String> mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,7 @@ public class MyProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 //              SelectImage();
-                Intent searchIntent = new Intent(MyProfileActivity.this, ListView.class);
+                Intent searchIntent = new Intent(MyProfileActivity.this, SearchActivity.class);
                 startActivity(searchIntent);
                 Toast.makeText(getBaseContext(), "Search Profile", Toast.LENGTH_SHORT).show();
             }
@@ -107,20 +108,28 @@ public class MyProfileActivity extends AppCompatActivity {
 //        }
 //    }
 
-//    private void updateUI(){
-//        ArrayList<String> userProfile = new ArrayList<>();
-//        SQLiteDatabase db = mHelper.getReadableDatabase();
-//        Cursor cursor = db.query(DatabaseHelper.TABLE_USER,
-//                new String[]{DatabaseHelper.COLUMN_USER_NAME, DatabaseHelper.COLUMN_USER_GENDER,
-//                        DatabaseHelper.COLUMN_USER_AGE, DatabaseHelper.COLUMN_USER_ADDRESS},
-//                null,null,null,null, null);
-//
-//        while (cursor.moveToNext()){
-//
-//        }
-//        cursor.close();
-//        db.close();
-//    }
+    private void updateUI(){
+        ArrayList<String> list_profile = new ArrayList<>();
+        SQLiteDatabase db = mHelper.getReadableDatabase();
+        Cursor cursor = db.query(DatabaseHelper.TABLE_USER,
+                new String[]{DatabaseHelper.COLUMN_USER_NAME, DatabaseHelper.COLUMN_USER_GENDER,
+                        DatabaseHelper.COLUMN_USER_AGE, DatabaseHelper.COLUMN_USER_INTEREST},
+                null,null,null,null, null);
+
+        while (cursor.moveToNext()){
+            int index = cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_NAME);
+            list_profile.add(cursor.getString(index));
+        }
+
+        if ( mAdapter == null){
+            mAdapter = new ArrayAdapter<String>(this, R.layout.content_profile, R.id.tv_name,
+                    list_profile);
+
+        }
+
+        cursor.close();
+        db.close();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -146,7 +155,10 @@ public class MyProfileActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
 
 }
 

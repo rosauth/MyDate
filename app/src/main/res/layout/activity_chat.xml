@@ -52,6 +52,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:text="@string/send"
+            android:onClick="sendMessage"
             />
     </RelativeLayout>
 

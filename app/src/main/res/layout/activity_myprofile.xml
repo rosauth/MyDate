@@ -80,4 +80,10 @@
         app:layout_anchorGravity="right|center"
         android:visibility="invisible"/>
 
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/profile_list"/>
+
+
 </android.support.design.widget.CoordinatorLayout>

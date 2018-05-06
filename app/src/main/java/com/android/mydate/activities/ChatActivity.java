@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.format.DateUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
@@ -49,6 +50,13 @@ public class ChatActivity extends AppCompatActivity{
         //setSupportActionBar(toolbar);
     }
 
+    public void sendMessage(View view) {
+        if (input_chat.length() == 0)
+            return;
+
+//        InputMethodManager
+    }
+
     private class ChatAdapter extends BaseAdapter{
         @Override
         public int getCount() {
@@ -62,7 +70,7 @@ public class ChatActivity extends AppCompatActivity{
 
         @Override
         public long getItemId(int i) {
-            return 0;
+            return i;
         }
 
         @SuppressLint("InflateParams")

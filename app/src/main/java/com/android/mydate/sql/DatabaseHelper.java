@@ -17,20 +17,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "UserManager.db";
 
-    private static final String TABLE_USER = "user";
+    public static final String TABLE_USER = "user";
 
-    private static final String COLUMN_USER_ID = "user_id";
-    private static final String COLUMN_USER_NAME = "user_name";
-    private static final String COLUMN_USER_INTEREST = "user_interest";
-    private static final String COLUMN_USER_SEX = "user_sex";
-    private static final String COLUMN_USER_AGE = "user_age";
+    public static final String COLUMN_USER_ID = "user_id";
+    public static final String COLUMN_USER_NAME = "user_name";
+    public static final String COLUMN_USER_INTEREST = "user_interest";
+    public static final String COLUMN_USER_GENDER = "user_gender";
+    public static final String COLUMN_USER_AGE = "user_age";
     private static final String COLUMN_USER_EMAIL = "user_email";
     private static final String COLUMN_USER_PASSWORD = "user_password";
 
     private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "("
             + COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_USER_NAME + " TEXT,"
             + COLUMN_USER_EMAIL + " TEXT," + COLUMN_USER_INTEREST + " TEXT,"
-            + COLUMN_USER_SEX+ " TEXT,"+ COLUMN_USER_AGE + " INT,"
+            + COLUMN_USER_GENDER + " TEXT,"+ COLUMN_USER_AGE + " INT,"
             + COLUMN_USER_PASSWORD + " TEXT" + ")";
 
     private String DROP_USER_TABLE = "DROP TABLE IF EXISTS " + TABLE_USER;
@@ -56,7 +56,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_USER_NAME, user.getName());
         values.put(COLUMN_USER_AGE, user.getAge());
         values.put(COLUMN_USER_INTEREST, user.getInterest());
-        values.put(COLUMN_USER_SEX, user.getSex());
+        values.put(COLUMN_USER_GENDER, user.getSex());
         values.put(COLUMN_USER_EMAIL, user.getEmail());
         values.put(COLUMN_USER_PASSWORD, user.getPassword());
 
