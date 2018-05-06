@@ -96,12 +96,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if (databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim()
                 , textInputEditTextPassword.getText().toString().trim())) {
-            Intent accountsIntent = new Intent(activity, MyProfileActivity.class);
+            Intent accountsIntent = new Intent(activity, ListView.class);
             accountsIntent.putExtra("EMAIL", textInputEditTextEmail.getText().toString().trim());
             emptyInputEditText();
             startActivity(accountsIntent);
         } else {
-            //Snackbar.make(nestedScrollView, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show();
+            Snackbar.make(nestedScrollView, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show();
             Toast.makeText(getBaseContext(), getString(R.string.error_valid_email_password), Toast.LENGTH_LONG).show();
         }
     }
