@@ -127,47 +127,6 @@
 
         </RelativeLayout>
 
-        <!--<RelativeLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:background="?attr/selectableItemBackground"-->
-            <!--android:padding="@dimen/activity_horizontal_margin">-->
-
-            <!--<ImageView-->
-                <!--android:id="@+id/ivContactItem4"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_centerVertical="true"-->
-                <!--android:layout_marginEnd="@dimen/activity_horizontal_margin"-->
-                <!--android:src="@drawable/ic_favorite" />-->
-
-            <!--<TextView-->
-                <!--android:id="@+id/tvNumber4"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginStart="@dimen/activity_horizontal_margin"-->
-                <!--android:layout_toEndOf="@id/ivContactItem4"-->
-                <!--android:layout_toStartOf="@+id/chkState4"-->
-                <!--android:ellipsize="end"-->
-                <!--android:maxLines="1"-->
-                <!--android:text="pratik@letsnurture.com"-->
-                <!--android:textAppearance="@style/TextAppearance.AppCompat.Medium"-->
-                <!--android:textColor="#212121" />-->
-
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_below="@id/tvNumber4"-->
-                <!--android:layout_marginStart="@dimen/activity_horizontal_margin"-->
-                <!--android:layout_marginTop="8dp"-->
-                <!--android:layout_toEndOf="@id/ivContactItem4"-->
-                <!--android:text="Interest"-->
-                <!--android:textAppearance="@style/TextAppearance.AppCompat.Small"-->
-                <!--android:textColor="#727272" />-->
-
-        <!--</RelativeLayout>-->
-
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

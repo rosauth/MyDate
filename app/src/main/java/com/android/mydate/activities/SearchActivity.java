@@ -11,19 +11,22 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.SimpleCursorAdapter;
 
 import com.android.mydate.R;
 import com.android.mydate.sql.DatabaseHelper;
 
 import java.util.ArrayList;
 
-public class SearchActivity extends AppCompatActivity{
+public class SearchActivity extends AppCompatActivity {
 
     private DatabaseHelper mHelper;
-    private ArrayAdapter mAdapter;
+    private ListAdapter mAdapter;
     private android.widget.ListView lv;
     EditText inputSearch;
     Button search_button;
+    Cursor cursor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,7 +49,7 @@ public class SearchActivity extends AppCompatActivity{
 
     }
 
-    // TODO
+
 //    public void filterData(){
 //        inputSearch.addTextChangedListener(new TextWatcher() {
 //            @Override
@@ -68,31 +71,41 @@ public class SearchActivity extends AppCompatActivity{
 
 
     @SuppressLint("ResourceType")
-    private void updateUI(){
+    private void updateUI() {
         ArrayList<String> taskList = new ArrayList<>();
         SQLiteDatabase db = mHelper.getReadableDatabase();
-        Cursor cursor = db.query(DatabaseHelper.TABLE_USER, new String[] {DatabaseHelper.COLUMN_USER_ID,
-                DatabaseHelper.COLUMN_USER_NAME},null,null,null,null,null);
-        mAdapter = new ArrayAdapter<>(this, R.id.product_name, taskList);
-        while (cursor.moveToNext()){
-            int idx = cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_NAME);
-            taskList.add(cursor.getString(idx));
-        }
-        if (mAdapter == null){
-            mAdapter = new ArrayAdapter<>(this,
-                    R.layout.activity_search,
-                    R.id.list_view,
-                    taskList);
-            lv.setAdapter(mAdapter);
-        }
-        else {
-            mAdapter.clear();
-            mAdapter.addAll(taskList);
-            mAdapter.notifyDataSetChanged();
-        }
 
-        cursor.close();
-        db.close();
+        try {
+            cursor = db.rawQuery("Select user_name, user_gender FROM user WHERE user_name LIKE ?",
+                    new String[]{"%" + inputSearch + "%"});
+            mAdapter = new SimpleCursorAdapter(SearchActivity.this, R.layout.activity_search, cursor,
+                    new String[]{"user_name", "user_gender"}, new int[]{R.id.search_name, R.id.search_gender});
+            lv.setAdapter(mAdapter);
+            lv.setTextFilterEnabled(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+//                DatabaseHelper.COLUMN_USER_NAME},null,null,null,null,null);
+//        mAdapter = new ArrayAdapter<>(this, R.id.product_name, taskList);
+//        while (cursor.moveToNext()){
+//            int idx = cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_NAME);
+//            taskList.add(cursor.getString(idx));
+//        }
+//        if (mAdapter == null){
+//            mAdapter = new ArrayAdapter<>(this,
+//                    R.layout.activity_search,
+//                    R.id.list_view,
+//                    taskList);
+//            lv.setAdapter(mAdapter);
+//        }
+//        else {
+//            mAdapter.clear();
+//            mAdapter.addAll(taskList);
+//            mAdapter.notifyDataSetChanged();
+//        }
+//
+//        cursor.close();
+//        db.close();
 
 }

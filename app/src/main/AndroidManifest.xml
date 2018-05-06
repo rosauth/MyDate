@@ -26,9 +26,6 @@
 
         <activity android:name=".activities.UserProfileActivity" />
 
-        <activity android:name=".activities.UsersActivity"
-            android:screenOrientation="portrait" />
-
         <activity android:name=".activities.SearchActivity"
             android:theme="@style/AppTheme.Light"/>
     </application>
