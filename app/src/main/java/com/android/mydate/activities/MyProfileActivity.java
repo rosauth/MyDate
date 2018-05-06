@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.animation.Animation;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 import com.android.mydate.R;
@@ -111,21 +112,10 @@ public class MyProfileActivity extends AppCompatActivity {
     private void updateUI(){
         ArrayList<String> list_profile = new ArrayList<>();
         SQLiteDatabase db = mHelper.getReadableDatabase();
-        Cursor cursor = db.query(DatabaseHelper.TABLE_USER,
-                new String[]{DatabaseHelper.COLUMN_USER_NAME, DatabaseHelper.COLUMN_USER_GENDER,
-                        DatabaseHelper.COLUMN_USER_AGE, DatabaseHelper.COLUMN_USER_INTEREST},
-                null,null,null,null, null);
-
-        while (cursor.moveToNext()){
-            int index = cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_NAME);
-            list_profile.add(cursor.getString(index));
-        }
-
-        if ( mAdapter == null){
-            mAdapter = new ArrayAdapter<String>(this, R.layout.content_myprofile, R.id.tv_name,
-                    list_profile);
-
-        }
+        Cursor cursor = db.rawQuery("SELECT user_name, user_gender, user_age, user_interest FROM user" +
+                "WHERE user_email LIKE ?", new String []{"%" + R.id.textInputEditTextEmail + "%"});
+//        mAdapter = new SimpleCursorAdapter(MyProfileActivity.this, R.layout.content_myprofile, cursor,
+//                new String[]{"user_name", "user_gender", "user_age", "user_interest"}, new int[]{R.id.})
 
         cursor.close();
         db.close();

@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private TextInputLayout textInputLayoutEmail;
     private TextInputLayout textInputLayoutPassword;
 
-    private TextInputEditText textInputEditTextEmail;
+    public TextInputEditText textInputEditTextEmail;
     private TextInputEditText textInputEditTextPassword;
 
     private AppCompatButton appCompatButtonLogin;

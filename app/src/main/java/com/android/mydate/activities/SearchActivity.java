@@ -5,10 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
@@ -79,7 +76,7 @@ public class SearchActivity extends AppCompatActivity {
         try {
             cursor = db.rawQuery("Select user_name, user_gender FROM user WHERE user_name LIKE ?",
                     new String[]{"%" + a + "%"});
-            mAdapter = new SimpleCursorAdapter(SearchActivity.this, R.layout.activity_list_search, cursor,
+            mAdapter = new SimpleCursorAdapter(SearchActivity.this, R.layout.content_list_search, cursor,
                     new String[]{"user_name", "user_gender"}, new int[]{R.id.search_name, R.id.search_gender});
             lv.setAdapter(mAdapter);
             lv.setTextFilterEnabled(true);
