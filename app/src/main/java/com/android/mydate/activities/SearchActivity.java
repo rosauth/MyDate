@@ -1,6 +1,7 @@
 package com.android.mydate.activities;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -39,7 +40,9 @@ public class SearchActivity extends AppCompatActivity {
         search_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                updateUI();
+//                updateUI();
+                Intent userProfile =  new Intent(SearchActivity.this, UserProfileActivity.class);
+                startActivity(userProfile);
             }
         });
 //        filterData();
